@@ -1,6 +1,6 @@
-I try to make an game in CLI
+I try to make games in CLI
 
-In the future I will try to make from this script a fully functioning video game.
+In the future I will try to make from this script a fully functioning video game template.
 
 You also need to enable Terminal Emulation for it to work in CLion.
 
