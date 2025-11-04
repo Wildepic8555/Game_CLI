@@ -37,6 +37,7 @@ void rightMasker(int r) {
 }
 
 //Generates frame with position of player
+//int x is player location x
 void frameGen(int x) {
     //Calculates were Player is and were the last # is
     int rightMask = size -x;
