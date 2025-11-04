@@ -9,7 +9,7 @@ int playerCharASCIIValue = 87;
 //Sets line char in ascii
 int lineChar = 35;
 
-
+//Size for mask gen and example
 int size;
 //Generates line
 void lineGen() {
@@ -64,7 +64,7 @@ void frameGen(int x) {
 
 //Move 1 time from left to right , right to left
 int main(void) {
-    //Init size for line gen and masks and example movement
+    //Init size for masks and example movement
     size = realsize - 2;
     int i = 1;
     while (i < (size + 1)) {
