@@ -3,4 +3,8 @@ project(Game_Engine C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(Game_Engine main.c)
+add_executable(Game_Engine main.c
+        frameDraw.c
+        frameDraw.h
+        getKey.c
+        getKey.h)
