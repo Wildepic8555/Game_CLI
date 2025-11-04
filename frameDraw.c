@@ -16,15 +16,17 @@ int sizemax;
 int playerCharASCIIValue;
 //Sets line char in ascii
 int lineChar;
+//PlayerX
+int x1;
 
 //Size for mask gen and example
 int size2;
 
 //Inits the frame gen variables
-void init(int sizemaxlocal , int playerCharASCIIValueLocal , char lineCharLocal , int objectXLocal) {
+void init(int sizemaxlocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int objectXLocal) {
     sizemax = sizemaxlocal;
     playerCharASCIIValue = playerCharASCIIValueLocal;
-    lineChar = lineCharLocal;
+    lineChar = lineCharASCIIValueLocal;
     size2 = sizemax -2;
     frameGen(objectXLocal);
 }
@@ -56,9 +58,13 @@ void rightMasker(int r) {
 //Generates frame with position of player
 //int x is player location x
 void frameGen(int x) {
+    //Option to not change player x if new x is 0
+    if (x != 0) {
+        x1 = x;
+    }
     //Calculates were Player is and were the last # is
-    int rightMask = size2 -x;
-    int leftMask = x -1;
+    int rightMask = size2 -x1;
+    int leftMask = x1 -1;
     //Generates the top line
     lineGen();
     //New line and first #

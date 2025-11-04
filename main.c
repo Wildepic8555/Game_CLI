@@ -7,7 +7,7 @@
 #include "getKey.h"
 
 //set size of lines
-int realsize = 100;
+int realsize = 10;
 //Player position
 int playerX = 1;
 
