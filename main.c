@@ -8,12 +8,11 @@
 
 //set size of lines
 int realsize = 100;
-
+//Player position
 int playerX = 1;
 
 //Move 1 time from left to right , right to left
 int main(void) {
-
     //Init size for anim controller
     int size = realsize - 2;
     //Init frame gen
