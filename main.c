@@ -7,16 +7,16 @@
 #include "getKey.h"
 
 //set size of lines
-int realsize = 10;
+int realsizeX = 5;
+int realsizeY = 5;
 //Player position
 int playerX = 1;
+int playerY = 5;
 
 //Move 1 time from left to right , right to left
 int main(void) {
-    //Init size for anim controller
-    int size = realsize - 2;
     //Init frame gen
-    init(realsize, 87, 35 , playerX);
+    init(realsizeX , 87, 49 , playerX , playerY,realsizeY);
 
     while (true) {
         if (97 == getKey()) {
@@ -24,15 +24,29 @@ int main(void) {
                 playerX--;
             }
             system("clear");
-            frameGen(playerX);
+            frameGen(playerX , playerY);
         }
 
         if (100 == getKey()) {
-            if (playerX  < (size)) {
+            if (playerX  < (realsizeX)) {
                 playerX++;
             }
             system("clear");
-            frameGen(playerX);
+            frameGen(playerX , playerY);
+        }
+        if (119 == getKey()) {
+            if (playerY >1) {
+                playerY--;
+            }
+            system("clear");
+            frameGen(playerX , playerY);
+        }
+        if (115 == getKey()) {
+            if (playerY < realsizeX) {
+                playerY++;
+            }
+            system("clear");
+            frameGen(playerX , playerY);
         }
 
     }
