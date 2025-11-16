@@ -26,6 +26,10 @@ int sizeX;
 //Size y mask gen
 int sizeY;
 
+//Test Object
+int testX = 2;
+int testY = 3;
+
 //Inits the frame gen variables
 void init(int sizemaxlocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int objectXLocal , int objectYLocal , int sizeYlocal) {
     sizeNormalX = sizemaxlocal + 2;
@@ -40,6 +44,13 @@ void voidLineGen(int v) {
     putchar(lineChar);
     int i = 1;
     while (i <= v) {
+        //Work in Progress
+       /* if (testX == i) {
+            putchar(55);
+        }
+        else {
+            putchar(32);
+        } */
         putchar(32);
         i++;
     }
@@ -54,29 +65,43 @@ void lineGen() {
     }
 }
 //Generates void from first # to player
-void leftMasker(int l) {
+void leftMasker(int l, int lineTrackLeft) {
     int i = 1;
     while (i <= l) {
-        putchar(32);
+        //Puts in on the right place the object if its before the player
+        if (testX == i && testY == lineTrackLeft) {
+            putchar(55);
+        }
+        else {
+            putchar(32);
+        }
         i++;
     }
 }
 //Generates void from player to last #
-void rightMasker(int r) {
+void rightMasker(int r , int lineTrackRight) {
     int ii = 1;
     while (ii <= r) {
-        putchar(32);
+        int helper = ii +x1;
+        //Puts in on the right place the object if its after the player
+        if (testX == helper && testY == lineTrackRight) {
+            putchar(55);
+        }
+        else {
+            putchar(32);
+        }
         ii++;
     }
 }
 //Manages lines before and after player
-void voidLineManager(int v , int mask) {
+int voidLineManager(int v , int mask) {
     int i = 1;
     while (i <= mask) {
         i++;
         printf("\n");
-        voidLineGen(v);
+        voidLineGen(v );
     }
+    return i;
 }
 
 //Generates frame with position of player
@@ -88,24 +113,26 @@ void frameGen(int x , int y) {
     int leftMask = x1 -1;
     int downMask = sizeY - y;
     int upMask = y -1;
+    //Tracks on which line is the player
+    int lineTracker;
 
     //Generates the top line
     lineGen();
     //Makes lines before player after top line
-    voidLineManager(sizeX , upMask);
+    lineTracker =voidLineManager(sizeX , upMask) ;
 
     //New line and first #
     printf("\n");
     putchar(lineChar);
 
     //Move player from first #
-    leftMasker(leftMask);
+    leftMasker(leftMask , lineTracker);
 
     //Places player char
     putchar(playerCharASCIIValue);
 
     //Generates void between player and last #
-    rightMasker(rightMask);
+    rightMasker(rightMask, lineTracker);
 
     //Spawns last #
     putchar(lineChar);
