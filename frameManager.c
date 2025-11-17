@@ -1,11 +1,8 @@
 //
 // Created by wildepic on 11/17/25.
 //
-
-#include "frameManager.h"
-
 #include <stdlib.h>
-
+#include "frameManager.h"
 #include "frameDraw.h"
 
 int fieldSize[3];
