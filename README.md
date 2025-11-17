@@ -1,6 +1,6 @@
 I try to make games in CLI
 
-In the future I will try to make from this script a fully functioning video game template.
+In the future I will try to make from this script a fully functioning video game library. Now the main is for testing.
 
 You also need to enable Terminal Emulation for it to work in CLion.
 
