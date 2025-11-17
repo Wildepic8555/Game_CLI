@@ -21,6 +21,8 @@ int x1;
 //PlayerY
 int y1;
 
+int lineID =1;
+
 //Size for mask gen and example
 int sizeX;
 //Size y mask gen
@@ -45,13 +47,13 @@ void voidLineGen(int v) {
     int i = 1;
     while (i <= v) {
         //Work in Progress
-       /* if (testX == i) {
+       if (testX == i && testY == lineID) {
             putchar(55);
         }
         else {
             putchar(32);
-        } */
-        putchar(32);
+        }
+        //putchar(32);
         i++;
     }
     putchar(lineChar);
@@ -98,8 +100,9 @@ int voidLineManager(int v , int mask) {
     int i = 1;
     while (i <= mask) {
         i++;
+        lineID++;
         printf("\n");
-        voidLineGen(v );
+        voidLineGen(v);
     }
     return i;
 }
@@ -107,6 +110,7 @@ int voidLineManager(int v , int mask) {
 //Generates frame with position of player
 //int x is player location x
 void frameGen(int x , int y) {
+    lineID = 0;
     x1 = x;
     //Calculates were Player is and were the last # is
     int rightMask = sizeX -x1;
@@ -124,6 +128,8 @@ void frameGen(int x , int y) {
     //New line and first #
     printf("\n");
     putchar(lineChar);
+
+    lineID++;
 
     //Move player from first #
     leftMasker(leftMask , lineTracker);
