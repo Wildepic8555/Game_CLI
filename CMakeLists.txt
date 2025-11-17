@@ -7,4 +7,6 @@ add_executable(Game_Engine main.c
         frameDraw.c
         frameDraw.h
         getKey.c
-        getKey.h)
+        getKey.h
+        frameManager.c
+        frameManager.h)

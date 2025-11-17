@@ -11,35 +11,34 @@
 #include "frameDraw.h"
 
 //set size of lines
-int sizeNormalX;
-//sets player char
-int playerCharASCIIValue;
+int sizeOfLines;
 //Sets line char in ascii
 int lineChar;
-//PlayerX
-int x1;
-//PlayerY
-int y1;
 
+int player[4];
 int lineID =1;
 
 //Size for mask gen and example
 int sizeX;
-//Size y mask gen
-int sizeY;
+//Size 2 mask gen
+int size2;
 
-//Test Object
-int testX = 2;
-int testY = 3;
+//TestObject
+int testObject[4];
 
 //Inits the frame gen variables
-void init(int sizemaxlocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int objectXLocal , int objectYLocal , int sizeYlocal) {
-    sizeNormalX = sizemaxlocal + 2;
-    playerCharASCIIValue = playerCharASCIIValueLocal;
+void init(int sizeOfLinesLocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int playerXLocal , int playerYLocal , int sizeYlocal) {
+    //Test Object
+    testObject[1] = 1;
+    testObject[2] = 2;
+    testObject[3] = 55;
+
+    sizeOfLines = sizeOfLinesLocal + 2;
+    player[3] = playerCharASCIIValueLocal;
     lineChar = lineCharASCIIValueLocal;
-    sizeX = sizeNormalX -2;
-    sizeY = sizeYlocal;
-    frameGen(objectXLocal , objectYLocal);
+    sizeX = sizeOfLines -2;
+    size2 = sizeYlocal;
+    frameGen(playerXLocal , playerYLocal);
 }
 //Generates lines were players is not
 void voidLineGen(int v) {
@@ -47,13 +46,12 @@ void voidLineGen(int v) {
     int i = 1;
     while (i <= v) {
         //Work in Progress
-       if (testX == i && testY == lineID) {
-            putchar(55);
+       if (testObject[1] == i && testObject[2] == lineID) {
+            putchar(testObject[3]);
         }
         else {
             putchar(32);
         }
-        //putchar(32);
         i++;
     }
     putchar(lineChar);
@@ -61,7 +59,7 @@ void voidLineGen(int v) {
 //Generates the two lines top and bottom
 void lineGen() {
     int j = 1;
-    while (j < (sizeNormalX +1)) {
+    while (j < (sizeOfLines +1)) {
         putchar(lineChar);
         j++;
     }
@@ -71,8 +69,8 @@ void leftMasker(int l, int lineTrackLeft) {
     int i = 1;
     while (i <= l) {
         //Puts in on the right place the object if its before the player
-        if (testX == i && testY == lineTrackLeft) {
-            putchar(55);
+        if (testObject[1] == i && testObject[2] == lineTrackLeft) {
+            putchar(testObject[3]);
         }
         else {
             putchar(32);
@@ -84,10 +82,10 @@ void leftMasker(int l, int lineTrackLeft) {
 void rightMasker(int r , int lineTrackRight) {
     int ii = 1;
     while (ii <= r) {
-        int helper = ii +x1;
+        int helper = ii +player[1];
         //Puts in on the right place the object if its after the player
-        if (testX == helper && testY == lineTrackRight) {
-            putchar(55);
+        if (testObject[1] == helper && testObject[2] == lineTrackRight) {
+            putchar(testObject[3]);
         }
         else {
             putchar(32);
@@ -111,11 +109,11 @@ int voidLineManager(int v , int mask) {
 //int x is player location x
 void frameGen(int x , int y) {
     lineID = 0;
-    x1 = x;
+    player[1] = x;
     //Calculates were Player is and were the last # is
-    int rightMask = sizeX -x1;
-    int leftMask = x1 -1;
-    int downMask = sizeY - y;
+    int rightMask = sizeX -player[1];
+    int leftMask = player[1] -1;
+    int downMask = size2 - y;
     int upMask = y -1;
     //Tracks on which line is the player
     int lineTracker;
@@ -135,7 +133,7 @@ void frameGen(int x , int y) {
     leftMasker(leftMask , lineTracker);
 
     //Places player char
-    putchar(playerCharASCIIValue);
+    putchar(player[3]);
 
     //Generates void between player and last #
     rightMasker(rightMask, lineTracker);
