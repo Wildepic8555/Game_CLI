@@ -11,5 +11,6 @@ void setPlayerDesign(char Design);
 void setLineDesign(char Design);
 void frameUpdate();
 void setObject1(int x , int y , char Design);
+void setObject2(int x , int y , char Design);
 
 #endif //GAME_ENGINE_FRAMEMANAGER_H

@@ -4,10 +4,11 @@
 #include "getKey.h"
 
 int main(void) {
-    setSize(5, 5);
-    setPlayerLocation(1 ,1);
+    setSize(15, 5);
+    setPlayerLocation(5 ,2);
     setPlayerDesign('P');
     setLineDesign('#');
-    setObject1(4 ,1 ,'1');
+    setObject1(10 ,1 ,'1');
+    setObject2(10 ,2 ,'2');
     frameUpdate();
 }

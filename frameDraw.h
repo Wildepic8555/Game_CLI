@@ -6,6 +6,6 @@
 #define GAME_CLI_FRAMEDRAW_H
 
 void frameGen(int x , int y);
-void init(int sizeOfLinesLocal , int playerCharASCIIValueLocal , char lineCharLocal, int objectXLocal , int objectYLocal ,int sizeYlocal, int Object1Local[4]);
+void init(int sizeOfLinesLocal , int playerCharASCIIValueLocal , char lineCharLocal, int objectXLocal , int objectYLocal ,int sizeYlocal, int Object1Local[4], int Object2Local[4]);
 
 #endif //GAME_CLI_FRAMEDRAW_H
