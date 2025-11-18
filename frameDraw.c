@@ -24,14 +24,13 @@ int sizeX;
 int size2;
 
 //TestObject
-int testObject[4];
+int Object1Frame[4];
 
 //Inits the frame gen variables
-void init(int sizeOfLinesLocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int playerXLocal , int playerYLocal , int sizeYlocal) {
-    //Test Object
-    testObject[1] = 1;
-    testObject[2] = 2;
-    testObject[3] = 55;
+void init(int sizeOfLinesLocal , int playerCharASCIIValueLocal , char lineCharASCIIValueLocal , int playerXLocal , int playerYLocal , int sizeYlocal , int Object1Local[4]) {
+    Object1Frame[1] = Object1Local[1];
+    Object1Frame[2] = Object1Local[2];
+    Object1Frame[3] = Object1Local[3];
 
     sizeOfLines = sizeOfLinesLocal + 2;
     player[3] = playerCharASCIIValueLocal;
@@ -45,9 +44,9 @@ void voidLineGen(int v) {
     putchar(lineChar);
     int i = 1;
     while (i <= v) {
-        //Work in Progress
-       if (testObject[1] == i && testObject[2] == lineID) {
-            putchar(testObject[3]);
+        //This func is for Object 1 to spawn him
+       if (Object1Frame[1] == i && Object1Frame[2] == lineID) {
+            putchar(Object1Frame[3]);
         }
         else {
             putchar(32);
@@ -69,8 +68,8 @@ void leftMasker(int l, int lineTrackLeft) {
     int i = 1;
     while (i <= l) {
         //Puts in on the right place the object if its before the player
-        if (testObject[1] == i && testObject[2] == lineTrackLeft) {
-            putchar(testObject[3]);
+        if (Object1Frame[1] == i && Object1Frame[2] == lineTrackLeft) {
+            putchar(Object1Frame[3]);
         }
         else {
             putchar(32);
@@ -84,8 +83,8 @@ void rightMasker(int r , int lineTrackRight) {
     while (ii <= r) {
         int helper = ii +player[1];
         //Puts in on the right place the object if its after the player
-        if (testObject[1] == helper && testObject[2] == lineTrackRight) {
-            putchar(testObject[3]);
+        if (Object1Frame[1] == helper && Object1Frame[2] == lineTrackRight) {
+            putchar(Object1Frame[3]);
         }
         else {
             putchar(32);
@@ -148,7 +147,4 @@ void frameGen(int x , int y) {
 
     //Generates bottom line
     lineGen();
-
-    //DONT DELETE whitout this bottom line works incorrect
-    printf("\n");
 }
