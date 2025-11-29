@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include "frameManager.h"
 #include <stdio.h>
+#include <unistd.h>
+
 #include "frameDraw.h"
 #include "scoreboard_draw.h"
 
@@ -62,6 +64,8 @@ void scoreBoard(int score , int score2) {
 }
 
 void frameUpdate() {
+    //60 fps
+    usleep(1000000 / 60);
     system("clear");
     //If scoreboard isnt set or objects arent set they arent showed
     if (object1Used == false) {
@@ -70,10 +74,12 @@ void frameUpdate() {
     if (object2Used == false) {
         object2[3] = 32;
     }
+
     if (scoreboardused) {
         scoreBoardManager(scoreBoardScore ,scoreBoardScore1 , fieldSize[1] , lineDesign);
     }
 
     init(fieldSize[1] , playerDesign, lineDesign , playerLoc[1] , playerLoc[2],fieldSize[2] , object1 ,object2);
+
 }
 

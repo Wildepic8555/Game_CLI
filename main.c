@@ -4,13 +4,19 @@
 #include "getKey.h"
 
 int main(void) {
-    setSize(15, 5);
-    setPlayerLocation(5 ,2);
-    setPlayerDesign('P');
-    setLineDesign('#');
-    setObject1(10 ,2 ,'1');
-    setObject2(10 ,3 ,'2');
-    scoreBoard(1 , 1000);
-    frameUpdate();
+    int i = 0;
+    while (1) {
+        i++;
+        setSize(15, 5);
+        setPlayerLocation(9 ,2);
+        setPlayerDesign('P');
+        setLineDesign('#');
+        setObject1(10 ,2 ,'1');
+        setObject2(10 ,3 ,'2');
+        scoreBoard(0, 0);
+        frameUpdate();
+
+
+    }
     return 5;
 }

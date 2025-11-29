@@ -161,4 +161,7 @@ void frameGen(int x , int y) {
 
     //Generates bottom line
     lineGen();
+
+    printf("\n");
+
 }
